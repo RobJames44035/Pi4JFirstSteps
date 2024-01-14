@@ -1,0 +1,6 @@
+mvn archetype:generate \
+  -DarchetypeGroupId=com.rajames \
+  -DarchetypeArtifactId=groovy-pi4j-archetype \
+  -DarchetypeVersion=1.0-SNAPSHOT \
+  -DgroupId=com.mycompany.myproject \
+  -DartifactId=mynewproject
