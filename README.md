@@ -2,7 +2,7 @@
 
 My first Pi4J program in Groovy based on pi4j-example-minimal-main
 
-![](/home/pi/PROJECTS/IdeaProjects/groovy-pi4j/etc/led-button_bb.png)
+![](./etc/led-button_bb.png)
 
 Wring diagram for the breadboard.
 

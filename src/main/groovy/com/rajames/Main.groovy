@@ -20,6 +20,17 @@ class Main {
 
     static void main(String[] args) throws Exception {
 
+        String osName = System.getProperty("os.name").toLowerCase()
+        String osArch = System.getProperty("os.arch").toLowerCase()
+        if (!(osName.startsWith("linux") && osArch.startsWith("arm"))) {
+            System.err.println("Not a Raspberry Pi. Exiting.")
+            System.exit(1)
+        }
+        if (!isRoot()) {
+            System.err.println("Application must be run as root!")
+            System.exit(1)
+        }
+
         Properties props = new Properties()
         InputStream input = null
 
@@ -83,5 +94,15 @@ class Main {
 
         // Shutdown Pi4J
         pi4j.shutdown()
+        System.exit(0)
+    }
+
+    static boolean isRoot() {
+        try {
+            'id -u'.execute().text.trim() == '0'
+        } catch(Exception ignored) {
+            System.err.println("Error determining root status.")
+            System.exit(1)
+        }
     }
 }
